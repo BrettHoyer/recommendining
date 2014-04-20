@@ -1,0 +1,25 @@
+<h1 ng-show="!loggedIn" ng-click="login()">Login</h1>
+<h1 ng-show="loggedIn" ng-click="logout()">Logout</h1>
+<h1 ng-click="me()">Me</h1>
+
+<select ng-model="category" ng-change="newCat()" ng-options="cat as cat for cat in categories"></select>
+
+<h1>{{category}}</h1>
+
+<ul>
+  <li ng-repeat="rest in restaurants">
+    {{rest.name}} 
+    {{rest.neighborhoods}}
+    {{rest.location}} 
+    {{rest.phone}}
+
+    <!-- {{rest}} -->
+    <div id="rest-rating">{{rest.review_count}} reviews <img ng-src="{{rest.rating_img_url}}"></div>
+  </li>
+</ul>
+
+<img ng-src="{{user.picture.data.url}}">
+
+
+<!-- angular routing idiot -->
+<a href="/auth/facebook" ng-click="facebookAuth()" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>

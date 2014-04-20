@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <base href="/">
+
+  <title>Recommendining</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
+
+  <!-- JS -->
+  <script src="libs/angular/angular.min.js"></script>
+  <script src="libs/angular-route/angular-route.min.js"></script>
+  <script src="libs/angular-resource/angular-resource.min.js"></script>
+  <script src="libs/angular-local-storage/angular-local-storage.min.js"></script>
+  <script src="libs/angular-facebook/lib/angular-facebook.js"></script>
+
+  <!-- ANGULAR CUSTOM -->
+  <script src="js/services/LocationService.js"></script>
+  <script src="js/services/CategoryService.js"></script>
+  <script src="js/controllers/MainCtrl.js"></script>
+  <script src="js/appRoutes.js"></script>
+  <script src="js/app.js"></script>
+</head>
+<body ng-app="food" ng-controller="MainController">
+<div class="container">
+
+  <!-- HEADER -->
+  <nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Food App</a>
+    </div>
+
+    <!-- LINK TO OUR PAGES. ANGULAR HANDLES THE ROUTING HERE -->
+    <ul class="nav navbar-nav">
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <div ng-show='loggedIn'><img ng-src="{{user.picture.data.url}}"></div>
+  </nav>
+
+  <!-- ANGULAR DYNAMIC CONTENT -->
+  <div ng-view></div>
+
+</div>
+</body>
+</html>
